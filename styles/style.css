@@ -11,8 +11,10 @@
     cursor: pointer;
 }
 .addBook .popupText {
+    display: flex;
+    flex-direction: column;
     visibility: hidden;
-    width: 160px;
+    width: 25vw;
     background-color: #555;
     color: #fff;
     text-align: center;
@@ -36,8 +38,11 @@
 }
 .addBook .show{
     visibility: visible;
-    -webkit-animation: fadeIn 0.5s;
-    animation: fadeIn 0.5s
+    -webkit-animation: fadeIn 0.25s;
+    animation: fadeIn 0.25s
+}
+#close{
+    width:25%;
 }
   /* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
