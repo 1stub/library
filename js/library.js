@@ -24,21 +24,26 @@ addBook.addEventListener('click', () =>{
         count++;
     }
 });
-close.onclick = () => { 
+close.onclick = () => {
     popup.classList.toggle('show');
     count = 0;
 };
 
-function populatePopup(){
+function populatePopup(name,author){
     closePopup();
+    name="name";
+    author="author";
+    createLable(name);
+    createLable(author);
+}
+function createLable(lable){
     const nameLable = document.createElement('lable');
-    nameLable.for = "name";
-    nameLable.textContent="Name :";
-    const name = document.createElement('input');
-    name.classList.add('name');
-    name.id = "name";
-    popup.append(nameLable)
-    popup.appendChild(name);
+    nameLable.for = lable;
+    nameLable.textContent = `${lable}: `;
+    const elem = document.createElement('input');
+    elem.id=lable;
+    popup.append(nameLable);
+    nameLable.appendChild(elem);
 }
 
 function removeAllChildNodes(parent) {

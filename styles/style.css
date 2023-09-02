@@ -1,6 +1,10 @@
 :root{
     color-scheme: light dark;
 }
+html{
+    width: 75vw;
+    margin: auto;
+}
 .header{
     display: flex;
     justify-content: center;
@@ -9,9 +13,11 @@
 .addBook{
     position: relative;
     cursor: pointer;
+    gap: 12px; 
 }
 .addBook .popupText {
     display: flex;
+    margin: auto;  
     flex-direction: column;
     visibility: hidden;
     width: 25vw;
@@ -20,11 +26,9 @@
     text-align: center;
     border-radius: 6px;
     padding: 8px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -80px;
+}
+#myPopup{
+    gap: 12px;
 }
 .popup .popuptext::after {
     content: "";
@@ -40,6 +44,10 @@
     visibility: visible;
     -webkit-animation: fadeIn 0.25s;
     animation: fadeIn 0.25s
+}
+lable{
+    display:flex;
+    flex-direction:row;
 }
 #close{
     width:25%;
