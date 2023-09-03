@@ -7,10 +7,10 @@ const addBookBtn = document.createElement('button');
 
 const myLibrary = [];
 
-function Book(title, length, readStatus){
+function Book(title, length, author){
     this.title = title;
     this.length = length;
-    this.readStatus = readStatus;
+    this.author = author;
 }
 
 let count = 0;
@@ -33,6 +33,7 @@ close.onclick = () => {
 addBookBtn.onclick = () => {
     popup.classList.toggle('show');
     count = 0;
+    createBook();
 };
 
 function populatePopup(name,author,pages){
@@ -49,7 +50,16 @@ function createBookButton(){
     addBookBtn.id="addBook";
     addBookBtn.textContent="Add Book";
     popup.appendChild(addBookBtn);
+};
+
+function createBook(){
+    let bookName = document.getElementById('Name').value;
+    let author = document.getElementById('Author').value;
+    let pages = document.getElementById('Pages').value;
+    const book = new Book(bookName, author, pages);
+    myLibrary.push(book);
 }
+
 function createLable(lable){
     const nameLable = document.createElement('lable');
     nameLable.for = lable;
