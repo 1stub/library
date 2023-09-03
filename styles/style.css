@@ -25,7 +25,7 @@ html{
     color: #fff;
     text-align: center;
     border-radius: 6px;
-    padding: 8px 0;
+    padding: 8px 12px;
 }
 #myPopup{
     gap: 12px;
@@ -47,7 +47,9 @@ html{
 }
 lable{
     display:flex;
-    flex-direction:row;
+    flex-direction:column;
+    text-align: start;
+    gap:4px;
 }
 #close{
     width:25%;

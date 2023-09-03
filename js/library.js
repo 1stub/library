@@ -3,6 +3,7 @@ let popupText = document.querySelector('.popupText')
 let show = document.querySelector('.show')
 const addBook = document.querySelector('#bookButton');
 const close = document.createElement('button');
+const addBookBtn = document.createElement('button');
 
 const myLibrary = [];
 
@@ -24,17 +25,30 @@ addBook.addEventListener('click', () =>{
         count++;
     }
 });
+
 close.onclick = () => {
     popup.classList.toggle('show');
     count = 0;
 };
+addBookBtn.onclick = () => {
+    popup.classList.toggle('show');
+    count = 0;
+};
 
-function populatePopup(name,author){
+function populatePopup(name,author,pages){
     closePopup();
-    name="name";
-    author="author";
+    name="Name";
+    author="Author";
+    pages="Pages";
     createLable(name);
     createLable(author);
+    createLable(pages);
+    createBookButton();
+}
+function createBookButton(){
+    addBookBtn.id="addBook";
+    addBookBtn.textContent="Add Book";
+    popup.appendChild(addBookBtn);
 }
 function createLable(lable){
     const nameLable = document.createElement('lable');
