@@ -65,6 +65,7 @@ function createBook(){
 function populateLibrary(){
     let i = myLibrary.length-1;
     const book = document.createElement('div');
+    book.classList="bookItem";
     book.textContent = `${myLibrary[i].title}, ${myLibrary[i].author}, ${myLibrary[i].length}`;
     lib.appendChild(book);
 }
