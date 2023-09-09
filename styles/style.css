@@ -58,11 +58,15 @@ html,body{
     border-style: solid;
     border-color: #555 transparent transparent transparent;
 }
+.readDiv{
+   display: flex;
+  flex-direction:row;
+}
 .addBook .show{
     visibility: visible;
     -webkit-animation: fadeIn 0.25s;
     animation: fadeIn 0.25s
-}
+}     
 .myLibrary{
   display: flex;
   flex-wrap: wrap;

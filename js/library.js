@@ -8,10 +8,11 @@ const addBookBtn = document.createElement('button');
 
 const myLibrary = [];
 
-function Book(title, length, author){
+function Book(title, length, author, isRead){
     this.title = title;
     this.length = length;
     this.author = author;
+    this.isRead = isRead;
 }
 
 let count = 0;
@@ -46,6 +47,7 @@ function populatePopup(name,author,pages){
     createLable(name);
     createLable(author);
     createLable(pages);
+    createRead();
     createBookButton();
 }
 function createBookButton(){
@@ -58,7 +60,10 @@ function createBook(){
     let bookName = document.getElementById('Name').value;
     let author = document.getElementById('Author').value;
     let pages = document.getElementById('Pages').value;
-    const book = new Book(bookName, author, pages);
+    let read = document.getElementById('isRead');
+    if(read.checked === true) isRead = "Read";
+    if(read.checked === false) isRead = "Not Read"
+    const book = new Book(bookName, author, pages, isRead);
     myLibrary.push(book);
 }
 
@@ -66,7 +71,7 @@ function populateLibrary(){
     let i = myLibrary.length-1;
     const book = document.createElement('div');
     book.classList="bookItem";
-    book.textContent = `${myLibrary[i].title}, ${myLibrary[i].author}, ${myLibrary[i].length}`;
+    book.textContent = `${myLibrary[i].title}, ${myLibrary[i].author}, ${myLibrary[i].length}, ${myLibrary[i].isRead}`;
     lib.appendChild(book);
 }
 
@@ -78,6 +83,20 @@ function createLable(lable){
     elem.id=lable;
     popup.append(nameLable);
     nameLable.appendChild(elem);
+}
+
+function createRead(){
+    let readDiv = document.createElement('div');
+    const readCheckBox = document.createElement('input');
+    readDiv.classList = "readDiv"; 
+    readCheckBox.type = "checkbox";
+    readCheckBox.id="isRead";
+    const readLable = document.createElement('lable');
+    readLable.for="isRead";
+    readLable.textContent="Read:"
+    popup.appendChild(readDiv);
+    readDiv.appendChild(readLable);
+    readDiv.appendChild(readCheckBox);
 }
 
 function removeAllChildNodes(parent) {
