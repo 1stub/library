@@ -70,8 +70,12 @@ function createBook(){
 function populateLibrary(){
     let i = myLibrary.length-1;
     const book = document.createElement('div');
+    const readButton = document.createElement('button');
+    const bookInfo = document.createElement('p');
+    bookInfo.textContent = `${myLibrary[i].title}, ${myLibrary[i].author}, ${myLibrary[i].length}, ${myLibrary[i].isRead}`;
     book.classList="bookItem";
-    book.textContent = `${myLibrary[i].title}, ${myLibrary[i].author}, ${myLibrary[i].length}, ${myLibrary[i].isRead}`;
+    book.appendChild(bookInfo);
+    book.appendChild(readButton);
     lib.appendChild(book);
 }
 
