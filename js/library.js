@@ -2,6 +2,8 @@ let popup = document.getElementById('myPopup');
 let popupText = document.querySelector('.popupText');
 let show = document.querySelector('.show');
 let lib = document.querySelector('.myLibrary');
+const bookRead = document.querySelectorAll('.bookItem');
+const buttons = document.querySelectorAll('.bookBtn');
 const addBook = document.querySelector('#bookButton');
 const close = document.createElement('button');
 const addBookBtn = document.createElement('button');
@@ -32,6 +34,7 @@ close.onclick = () => {
     popup.classList.toggle('show');
     count = 0;
 };
+
 addBookBtn.onclick = () => {
     popup.classList.toggle('show');
     count = 0;
@@ -72,8 +75,16 @@ function populateLibrary(){
     const book = document.createElement('div');
     const readButton = document.createElement('button');
     const bookInfo = document.createElement('p');
-    bookInfo.textContent = `${myLibrary[i].title}, ${myLibrary[i].author}, ${myLibrary[i].length}, ${myLibrary[i].isRead}`;
+    bookInfo.textContent = `${myLibrary[i].title}, ${myLibrary[i].author}, ${myLibrary[i].length}`;
     book.classList="bookItem";
+    book.id = i;
+    readButton.classList = 'bookBtn';
+    readButton.textContent = myLibrary[i].isRead;
+    readButton.addEventListener('click', function(){
+        const parent = readButton.parentNode;
+        alert('ParentNode' + parent.id);
+      });
+      console.log('Event listener added to button', readButton.textContent)
     book.appendChild(bookInfo);
     book.appendChild(readButton);
     lib.appendChild(book);
