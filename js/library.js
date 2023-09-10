@@ -80,11 +80,17 @@ function populateLibrary(){
     book.id = i;
     readButton.classList = 'bookBtn';
     readButton.textContent = myLibrary[i].isRead;
-    readButton.addEventListener('click', function(){
-        const parent = readButton.parentNode;
-        alert('ParentNode' + parent.id);
-      });
-      console.log('Event listener added to button', readButton.textContent)
+    (function(button) {
+        button.addEventListener('click', function(){
+          console.log('Event listener added to button', button.textContent)
+          const parent = button.parentNode;
+          const parentID = parent.id;
+          if (myLibrary[parentID].isRead === "Not Read") {
+            myLibrary[parentID].isRead = "Read";
+            button.textContent = "Read"; // Change the text content
+          }
+        });
+      })(readButton); // Pass readButton as an argument to the IIFE
     book.appendChild(bookInfo);
     book.appendChild(readButton);
     lib.appendChild(book);
