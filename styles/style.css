@@ -46,7 +46,7 @@ html,body{
     margin-top: 24px;
 }
 #myPopup{
-    gap: 12px;
+    gap: 12px;        
 }
 .popup .popuptext::after {
     content: "";
@@ -83,6 +83,14 @@ html,body{
   min-height: 10vw;
   border-radius: 5px;
   text-align:center;
+}
+.bookItem > p,
+.bookItem > button{
+  margin: 6px;
+}
+.bookItem > button{
+  border-radius: 6px;
+  border: 1px solid;
 }
 lable{
     display:flex;
