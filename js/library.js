@@ -21,7 +21,7 @@ function Book(title, author, length, isRead, id){
 let count = 0;
 addBook.addEventListener('click', () =>{
     removeAllChildNodes(popup);
-    if(count === 0){
+   if(count === 0){
         popup.classList.toggle('show');
         populatePopup();
     }
