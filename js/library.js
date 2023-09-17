@@ -10,7 +10,7 @@ const addBookBtn = document.createElement('button');
 
 const myLibrary = [];
 
-function Book(title, author, length, isRead, id){
+function Book(title, author, length, isRead, id){  
     this.title = title;
     this.author = author;
     this.length = length;
